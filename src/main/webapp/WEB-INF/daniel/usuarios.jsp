@@ -88,9 +88,6 @@
 				 <input  class="btn btn-warning" type="submit" value="Lista de Usuarios">
 			 </form>
 			 <br>
-			 <form action="/producto">
-				 <input  class="btn btn-warning" type="submit" value="Agregar Productos">
-			 </form>
 			</div>
 		</div>
 </body>
