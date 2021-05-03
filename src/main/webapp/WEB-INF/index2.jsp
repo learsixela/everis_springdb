@@ -46,6 +46,5 @@ v<%@ page language="java" contentType="text/html; charset=UTF-8"
 		
 		
 	</div>
-	<a class="btn btn-primary" href="/dpeliculas">Dante Lagos</a>
 </body>
 </html>
