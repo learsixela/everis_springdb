@@ -69,7 +69,7 @@ public class AlumnosController {
 			//BindingResult result
 			//,@PathVariable("id") Long id
 			) {
-		Optional<Alumno> alumno1 = alumnoService.findById(alumno.getId());
+	
 		alumnoService.actualizarAlumno(alumno);
 		return "redirect:/";
 	}

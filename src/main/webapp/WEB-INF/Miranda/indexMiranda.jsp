@@ -1,4 +1,4 @@
-v<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>   
@@ -11,13 +11,12 @@ v<%@ page language="java" contentType="text/html; charset=UTF-8"
 <body>
 	<div>
 		<h2>Ingrese información</h2>
-		<form action="/alumnos" method="POST">
+		<form action="/mirandas" method="POST">
 			<label for="nombre">Nombre: </label>
 			<input type="text" id="nombre" name="nombre">
-			<label for="pass">Password: </label>
-			<input type="password" id="pass" name="pass">
-			<label for="edad">Edad: </label>
-			<input type="text" id="edad" name="edad">
+			<label for="marca">Apellido: </label>
+			<input type="text" id="apellido" name="apellido">
+
 			<input type="submit" value="enviar">
 		</form>
 		<br>
@@ -27,18 +26,18 @@ v<%@ page language="java" contentType="text/html; charset=UTF-8"
 			<thead>
 				<tr>
 					<th>Nombre </th>
-					<th>Edad </th>
+					<th>Apellido </th>
 					<th>Editar</th>
 					<th>Eliminar</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="alumno"  items="${alumnos}">
+				<c:forEach var="miranda"  items="${mirandas}">
 					<tr>
-						<td><c:out value="${alumno.nombre}" /> </td>
-						<td><c:out value="${alumno.edad}" /> </td>
-						<td><a href="/alumnos/editar/${alumno.id}">E</a></td>
-						<td><a href="/alumnos/eliminar/${alumno.id}">X</a></td>
+						<td><c:out value="${miranda.nombre}" /> </td>
+						<td><c:out value="${miranda.apellido}" /> </td>
+						<td><a href="/miranda/editar/${miranda.id}">E</a></td>
+						<td><a href="/miranda/eliminar/${miranda.id}">X</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
