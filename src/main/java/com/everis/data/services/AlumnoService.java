@@ -29,4 +29,8 @@ public class AlumnoService {
 		return oa;
 	}
 
+	public void deleteById(Long id) {
+		alumnoRepository.deleteById(id);
+	}
+
 }

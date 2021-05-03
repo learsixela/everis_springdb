@@ -27,6 +27,7 @@ public class ApiController {
 		
 		return alumnos_lista;
 	}
+	
 	@RequestMapping("/api/alumnos/{id}")
 	public Optional<Alumno> buscarAlumno(@PathVariable("id") Long id) {
 		
@@ -38,7 +39,8 @@ public class ApiController {
 	public String eliminarAlumno(@PathVariable("id") Long id) {
 	
 		alumnoRepository.deleteById(id);
-		return "Alumno eliminado";
+		return "index.jsp";
 	}
-
+	
+	
 }

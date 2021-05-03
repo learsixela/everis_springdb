@@ -1,8 +1,12 @@
 package com.everis.data.controllers;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -24,21 +28,30 @@ public class AlumnosController {
 	@RequestMapping("/alumnos")
 	public String alumnos(@RequestParam(value="nombre") String nombre,
 			@RequestParam(value="pass") String pass,
-			Model model) {
+			@RequestParam(value="edad") String edad) {
 		System.out.println(nombre+" - "+pass);
 		
 		Alumno alumno= new Alumno();
 		alumno.setNombre(nombre);
 		alumno.setPassword(pass);
-		alumno.setEdad(0);
+		alumno.setEdad(Integer.parseInt(edad));
 		
 		alumno = alumnoService.guardarAlumno(alumno);
 		
-		
+		/*
+		List<Alumno> alumnos_lista = alumnoService.allAlumnos();
 
-		model.addAttribute("nombre", nombre);
-		model.addAttribute("pass", pass);
-		return "inicio.jsp";
+		model.addAttribute("alumnos", alumnos_lista);
+		return "index.jsp";
+		 */
+		return "redirect:/";
+	}
+	
+	@RequestMapping("/alumnos/eliminar/{id}")
+	public String eliminarAlumno(@PathVariable("id") Long id) {
+	
+		alumnoService.deleteById(id);
+		return "redirect:/";
 	}
 
 }
