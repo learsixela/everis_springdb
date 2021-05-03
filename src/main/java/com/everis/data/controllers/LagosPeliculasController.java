@@ -49,7 +49,7 @@ public class LagosPeliculasController {
 	
 	
 	@RequestMapping("dpeliculas/actualizar/")
-	public String editarUsuario(@RequestParam(value="idEdit") Long id,
+	public String updateMovie(@RequestParam(value="idEdit") Long id,
 			@RequestParam(value="nombreEdit") String nombre,
 			@RequestParam(value="categoriaEdit") String categoria,
 			@RequestParam(value="precioEdit") Integer precio) {
