@@ -46,13 +46,5 @@
 		
 		
 	</div>
-<<<<<<< HEAD
-	
-	
-	<a href="/api/martinez">Redirigir a url martinez</a>
-=======
-	<a class="btn btn-primary" href="/dpeliculas">Dante Lagos</a>
-	<a class="btn btn-success" href="/HerreraLiberona/">Sebastián Herrera</a>
->>>>>>> 5a3a6d5bcb028f1b54871d460acd82081e970e68
 </body>
 </html>
