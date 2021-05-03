@@ -39,7 +39,7 @@ public class ApiController {
 	public String eliminarAlumno(@PathVariable("id") Long id) {
 	
 		alumnoRepository.deleteById(id);
-		return "index.jsp";
+		return "Alumno eliminado";
 	}
 	
 	

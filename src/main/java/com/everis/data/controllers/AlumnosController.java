@@ -1,6 +1,5 @@
 package com.everis.data.controllers;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,4 +53,11 @@ public class AlumnosController {
 		return "redirect:/";
 	}
 
+	@RequestMapping("/alumnos/editar/{id}")
+	public String editarAlumno(@PathVariable("id") Long id,
+			Model model) {
+		Optional<Alumno> alumno = alumnoService.findById(id);
+		model.addAttribute("alumno", alumno);
+		return "editar.jsp";
+	}
 }

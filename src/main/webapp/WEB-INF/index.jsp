@@ -37,7 +37,7 @@
 					<tr>
 						<td><c:out value="${alumno.nombre}" /> </td>
 						<td><c:out value="${alumno.edad}" /> </td>
-						<td> editar</td>
+						<td><a href="/alumnos/editar/${alumno.id}">E</a></td>
 						<td><a href="/alumnos/eliminar/${alumno.id}">X</a></td>
 					</tr>
 				</c:forEach>
