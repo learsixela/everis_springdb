@@ -47,5 +47,6 @@
 		
 	</div>
 	<a class="btn btn-primary" href="/dpeliculas">Dante Lagos</a>
+	<a class="btn btn-success" href="/HerreraLiberona/">Sebastián Herrera</a>
 </body>
 </html>
