@@ -21,13 +21,9 @@ public class HomeController {
         
         @RequestMapping("/")
         public String index(Model model) {
-        	List<Alumno> alumnos_lista = alumnoService.allAlumnos();
-        	model.addAttribute("alumnos", alumnos_lista);
-        	
-        	return "index.jsp";
+                List<Alumno> alumnos_lista = alumnoService.allAlumnos();
+
+                model.addAttribute("alumnos", alumnos_lista);
+                return "index.jsp";
         }
-        
-        
-        
-        
 }

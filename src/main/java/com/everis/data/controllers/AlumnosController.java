@@ -2,8 +2,6 @@ package com.everis.data.controllers;
 
 import java.util.Optional;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,18 +15,12 @@ import com.everis.data.services.AlumnoService;
 
 @Controller
 public class AlumnosController {
-	/*
-	private final AlumnoService alumnoService;
-	
-	public AlumnosController(AlumnoService alumnoService) {
-		this.alumnoService=alumnoService;
-	}
-	*/
+
 	@Autowired
 	AlumnoService alumnoService;
-	
 	@RequestMapping("/alumnos")
-	public String alumnos(@RequestParam(value="nombre") String nombre,
+	public String alumnos(
+			@RequestParam(value="nombre") String nombre,
 			@RequestParam(value="pass") String pass,
 			@RequestParam(value="edad") String edad) {
 		System.out.println(nombre+" - "+pass);
@@ -40,22 +32,16 @@ public class AlumnosController {
 		
 		alumno = alumnoService.guardarAlumno(alumno);
 		
-		/*
-		List<Alumno> alumnos_lista = alumnoService.allAlumnos();
-
-		model.addAttribute("alumnos", alumnos_lista);
-		return "index.jsp";
-		 */
 		return "redirect:/";
 	}
-	
+	//eliminar
 	@RequestMapping("/alumnos/eliminar/{id}")
 	public String eliminarAlumno(@PathVariable("id") Long id) {
 	
 		alumnoService.deleteById(id);
 		return "redirect:/";
 	}
-
+	//editar
 	@RequestMapping("/alumnos/editar/{id}")
 	public String editarAlumno(@PathVariable("id") Long id,
 			Model model) {
@@ -63,14 +49,18 @@ public class AlumnosController {
 		model.addAttribute("alumno", alumno);
 		return "editar.jsp";
 	}
-	
-	@RequestMapping("/alumno/actualizar/")
-	public String actualizarAlumno(@Valid @ModelAttribute("alumno") Alumno alumno
-			//BindingResult result
-			//,@PathVariable("id") Long id
+	//actualizar
+	@RequestMapping("/alumno/actualizar/{id}")
+	public String actualizar(
+			@ModelAttribute("alumno") Alumno alumno
+			//@PathVariable("id") Long id
 			) {
-	
+		
 		alumnoService.actualizarAlumno(alumno);
-		return "redirect:/";
+			return "redirect:/";
 	}
 }
+
+	
+	
+	

@@ -25,7 +25,7 @@ public class AlumnoService {
 	public List<Alumno> allAlumnos() {
 		return alumnoRepository.findAll();
 	}
- 
+
 	public Optional<Alumno> findById(Long id) {
 		Optional<Alumno> oa = alumnoRepository.findById(id);
 		return oa;
@@ -38,6 +38,7 @@ public class AlumnoService {
 	public void actualizarAlumno(@Valid Alumno alumno) {
 		// TODO Auto-generated method stub
 		alumnoRepository.save(alumno);
+		
 	}
 
 }

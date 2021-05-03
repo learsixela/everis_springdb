@@ -10,72 +10,72 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="alumnos")
-public class Alumno {
+@Table(name="juegos")
+public class Juego {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
-	@Size(min=4,max= 50)
+	@Size(min=4, max=50)
 	private String nombre;
-	@Size(min=4,max= 50)
-	private String password;
-	@Max(150)
-	@Min(1)
-	private Integer edad;
+	@Size(min=4, max=50)
+	private String clasificacion;
+	@Size(min=4, max=50)
+	private String genero;
 	
-    // Esto no permitirá que el campo createdAt sea modificado después de su creación.
     @Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAt;
     
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
-	
-	public Alumno() {}
+    
+    public Juego() {}
 
-	public Alumno(@Size(min = 4, max = 50) String nombre, @Size(min = 4, max = 50) String password, Integer edad) {
+	public Juego(@Size(min = 4, max = 50) String nombre, @Size(min = 4, max = 50) String clasificacion,
+			@Size(min = 4, max = 50) String genero) {
 		super();
 		this.nombre = nombre;
-		this.password = password;
-		this.edad = edad;
+		this.clasificacion = clasificacion;
+		this.genero = genero;
 	}
- 
+
 	public Long getId() {
 		return id;
 	}
-	
-	public String getNombre() {
-		return nombre;
-	}
-	public String getPassword() {
-		return password;
-	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+
+	public String getGenero() {
+		return genero;
 	}
 
-	public Integer getEdad() {
-		return edad;
+	public void setGenero(String genero) {
+		this.genero = genero;
 	}
 
-	public void setEdad(Integer edad) {
-		this.edad = edad;
+	public String getClasificacion() {
+		return clasificacion;
 	}
-	
-	// Otros getters y setters fueron removidos para resumir
+
+	public void setClasificacion(String clasificacion) {
+		this.clasificacion = clasificacion;
+	}
+    
     @PrePersist
     protected void onCreate(){
         this.createdAt = new Date();
@@ -84,8 +84,8 @@ public class Alumno {
     protected void onUpdate(){
         this.updatedAt = new Date();
     }
-
+	
+	
 	
 
 }
-

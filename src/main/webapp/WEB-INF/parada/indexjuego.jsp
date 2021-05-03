@@ -11,13 +11,15 @@
 <body>
 	<div>
 		<h2>Ingrese información</h2>
-		<form action="/alumnos" method="POST">
+		<form action="/juegos/guardar" method="POST">
 			<label for="nombre">Nombre: </label>
 			<input type="text" id="nombre" name="nombre">
-			<label for="pass">Password: </label>
-			<input type="password" id="pass" name="pass">
-			<label for="edad">Edad: </label>
-			<input type="text" id="edad" name="edad">
+			
+			<label for="clasificacion">clasificacion: </label>
+			<input type="text" id="clasificacion" name="clasificacion">
+			
+			<label for="genero">Genero: </label>
+			<input type="text" id="genero" name="genero">
 			<input type="submit" value="enviar">
 		</form>
 		<br>
@@ -27,18 +29,18 @@
 			<thead>
 				<tr>
 					<th>Nombre </th>
-					<th>Edad </th>
+					<th>clasificacion </th>
 					<th>Editar</th>
 					<th>Eliminar</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="alumno"  items="${alumnos}">
+				<c:forEach var="juego"  items="${juegos}">
 					<tr>
-						<td><c:out value="${alumno.nombre}" /> </td>
-						<td><c:out value="${alumno.edad}" /> </td>
-						<td><a href="/alumnos/editar/${alumno.id}">E</a></td>
-						<td><a href="/alumnos/eliminar/${alumno.id}">X</a></td>
+						<td><c:out value="${juego.nombre}" /> </td>
+						<td><c:out value="${juego.clasificacion}" /> </td>
+						<td><a href="/juegos/editar/${juegos.id}">E</a></td>
+						<td><a href="/juegos/eliminar/${juegos.id}">X</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
