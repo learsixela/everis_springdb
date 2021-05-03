@@ -46,5 +46,6 @@
 		
 		
 	</div>
+	<a class="btn btn-primary" href="/dpeliculas">Dante Lagos</a>
 </body>
 </html>
