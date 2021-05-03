@@ -2,9 +2,12 @@ package com.everis.data.controllers;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -59,5 +62,15 @@ public class AlumnosController {
 		Optional<Alumno> alumno = alumnoService.findById(id);
 		model.addAttribute("alumno", alumno);
 		return "editar.jsp";
+	}
+	
+	@RequestMapping("/alumno/actualizar/")
+	public String actualizarAlumno(@Valid @ModelAttribute("alumno") Alumno alumno
+			//BindingResult result
+			//,@PathVariable("id") Long id
+			) {
+		Optional<Alumno> alumno1 = alumnoService.findById(alumno.getId());
+		alumnoService.actualizarAlumno(alumno);
+		return "redirect:/";
 	}
 }

@@ -10,15 +10,16 @@
 </head>
 <body>
 	<div>
-		<form:form action="/alumnos" method="POST" modelAttribute="alumno">
+		<form:form action="/alumno/actualizar/" method="POST" modelAttribute="alumno">
+			<form:hidden path="id"/>
 			<form:label path="nombre">Nombre: </form:label>
 			<form:input path="nombre" />
 			
 			<br>
-			<form:label path="edad">Edad: </form:label>
-			<form:input path="edad" />
-			
-			<input type="submit" value="enviar">
+			<!--<form:label path="edad">Edad: </form:label>
+			<form:input path="edad" />-->
+			<br>
+			<input type="submit" value="Actualizar">
 		</form:form>
 	</div>
 </body>

@@ -3,6 +3,8 @@ package com.everis.data.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +33,11 @@ public class AlumnoService {
 
 	public void deleteById(Long id) {
 		alumnoRepository.deleteById(id);
+	}
+
+	public void actualizarAlumno(@Valid Alumno alumno) {
+		// TODO Auto-generated method stub
+		alumnoRepository.save(alumno);
 	}
 
 }
